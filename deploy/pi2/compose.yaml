@@ -1,0 +1,28 @@
+name: return-casaindia
+
+services:
+  web:
+    image: nginx:1.28.0-alpine
+    restart: unless-stopped
+    networks:
+      halo-edge:
+        aliases:
+          - casaindia-web
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 64m
+    cpus: 0.2
+    healthcheck:
+      test: [CMD, wget, -q, --spider, http://127.0.0.1/]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    volumes:
+      - /srv/halo-return/data/casaindia/current:/usr/share/nginx/html:ro
+      - ./default.conf:/etc/nginx/conf.d/default.conf:ro
+
+networks:
+  halo-edge:
+    external: true
+    name: return-halo-edge

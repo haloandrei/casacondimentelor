@@ -23,9 +23,11 @@ Run `npm run build` before a release. The build writes static files to `dist/`.
 
 ## Deployment
 
-GitHub Actions builds and deploys this site to [the public preview](https://haloandrei.github.io/casacondimentelor/). The workflow is in `.github/workflows/deploy.yml`.
+The primary site runs at [casaindia.haloandrei.com](https://casaindia.haloandrei.com/). Pi1 routes HTTPS through Nginx to the Pi2 site. See [the deployment guide](deploy/README.md).
 
-The Vite base path is `/casacondimentelor/`. Update `vite.config.ts` if the public path changes.
+GitHub Actions also deploys a [GitHub Pages preview](https://haloandrei.github.io/casacondimentelor/). Its workflow is in `.github/workflows/deploy.yml`.
+
+The default Vite base path is `/casacondimentelor/` for GitHub Pages. Set `VITE_BASE_PATH=/` when building the primary site.
 
 ## Product Images and Sources
 

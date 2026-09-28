@@ -1,0 +1,5 @@
+http://casaindia.haloandrei.com {
+    import security_headers
+    reverse_proxy casaindia-web:80
+    encode zstd gzip
+}
