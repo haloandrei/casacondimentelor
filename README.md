@@ -1,40 +1,44 @@
-# Codex STE Repository Template
+# Casa Condimentelor
 
-This repository contains reusable writing rules for coding agents.
-It uses Simplified Technical English principles for clear project prose.
+This repository holds the day-one public preview for Casa Condimentelor. The site presents a Romanian catalog inspired by the supplied brand poster.
 
-## Included Files
+## Current Features
 
-- `AGENTS.md` gives repository instructions to coding agents.
-- `ste-writing-skill.md` defines the writing rules.
-- `ste-lint.py` checks prose for common rule violations.
+- A responsive landing page with a generated spice image.
+- Three product entries with images from the product makers.
+- Category filters, text search, and product detail views.
+- A local selection list with quantity controls and a copy action.
+- A GitHub Pages deployment on each push to `main`.
 
-## Use the Template
+The site is a catalog preview. It does not show prices or stock. It does not accept orders, payments, accounts, newsletter signups, or personal data. The selection list stays in the visitor's browser storage.
 
-1. Select **Use this template** on GitHub.
-2. Create a repository from the template.
-3. Add your project-specific instructions to `AGENTS.md`.
-4. Keep the writing and commit rules that your project needs.
+## Run Locally
 
-## Check Prose
+1. Install Node.js 22 or later.
+2. Run `npm ci`.
+3. Run `npm run dev`.
+4. Open the address shown by Vite.
 
-The linter requires Python 3 and has no external dependencies.
+Run `npm run build` before a release. The build writes static files to `dist/`.
 
-Run it against one or more files:
+## Deployment
 
-```shell
-python ste-lint.py README.md AGENTS.md
-```
+GitHub Actions builds and deploys this site to [the public preview](https://haloandrei.github.io/casacondimentelor/). The workflow is in `.github/workflows/deploy.yml`.
 
-The report shows each rule count and a total count.
-Review each reported violation before you commit the prose.
+The Vite base path is `/casacondimentelor/`. Update `vite.config.ts` if the public path changes.
 
-## Adapt the Rules
+## Product Images and Sources
 
-The default skill supports strict and STE-flavored modes.
-Use strict mode for procedures, safety text, and error messages.
-Use STE-flavored mode for general documentation.
+The three product images show maker packaging. They are for this preview catalog. Confirm image use rights before commercial launch.
 
-ASD-STE100 is a copyrighted standard.
-This repository contains an independent summary, not the standard text.
-See the [official ASD-STE100 website](https://asd-ste100.org) for standard information.
+| Product | Source |
+| --- | --- |
+| Gits Gulab Jamun Mix | [Gits product page](https://international.gitsfood.com/product/gulab-jamun/) |
+| Gits Uttapam Mix | [Gits product page](https://international.gitsfood.com/product/uttapam/) |
+| Patanjali Cow's Ghee | [Patanjali product page](https://www.patanjaliayurved.net/product/natural-health-care/ghee/cows-ghee-200-ml/962) |
+
+The brand poster came from the project owner. The hero image was generated for this project from that poster as a style reference. The generation prompt asked for a wide spice still life with ivory space on the left, bowls of turmeric and chili, cardamom, cinnamon, rose petals, brass decor, and a peacock feather. It asked for no text or logo.
+
+## Next Inputs
+
+The commercial store needs confirmed product rights, prices, stock, package details, merchant contact data, delivery terms, legal policies, and payment credentials. See [the day-one decisions](docs/architecture.md) before adding checkout.
