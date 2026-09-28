@@ -4,7 +4,7 @@
 
 The project proposal describes a full commerce system with checkout, admin tools, payments, and email. Day one delivers a public catalog preview. This lets the owner review the brand and product presentation before the store accepts orders.
 
-The preview uses React, TypeScript, Vite, and static GitHub Pages hosting. It does not need a server or database. This keeps the public site simple while commercial inputs are still missing.
+The preview uses React, TypeScript, and Vite. Pi2 serves the static build in a small Nginx container. Pi2 Caddy routes the `casaindia.haloandrei.com` host to that container. Pi1 Nginx handles public HTTPS and forwards requests to Pi2. GitHub Pages also hosts a preview. The site does not need an application server or database.
 
 ## Data
 

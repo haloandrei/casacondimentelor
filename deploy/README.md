@@ -11,7 +11,7 @@ The primary site is `https://casaindia.haloandrei.com/`. DNS points to the home 
 5. Recreate the site container with `sudo /srv/halo-return/compose casaindia up -d --force-recreate` on Pi2.
 6. Check `https://casaindia.haloandrei.com/` and its images.
 
-The Pi2 Compose and Nginx files are in `deploy/pi2/`. Copy them to `/srv/halo-return/platform/deploy/casaindia/` on Pi2. Add `deploy/pi2/gateway.caddy` to the gateway Caddyfile on Pi2. The Pi1 Nginx site file is `deploy/nginx/casaindia.haloandrei.com.conf`. The certificate lives under `/etc/letsencrypt/live/casaindia.haloandrei.com/`. Certbot renews it on Pi1.
+The Pi2 Compose and Nginx files are in `deploy/pi2/`. Copy them to `/srv/halo-return/platform/deploy/casaindia/` on Pi2. Add `deploy/pi2/gateway.caddy` to the gateway Caddyfile on Pi2. The Pi1 Nginx site file is `deploy/nginx/casaindia.haloandrei.com.conf`. The bootstrap file supports the first certificate request. The certificate lives under `/etc/letsencrypt/live/casaindia.haloandrei.com/`. Certbot renews it on Pi1.
 
 ## Rollback
 
